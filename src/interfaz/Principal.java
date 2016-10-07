@@ -148,8 +148,8 @@ public class Principal extends javax.swing.JFrame {
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 70, 450, 70));
 
-        cmbOperaciones.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Diagonal Secundaria", "Diagonal Superior", "Diagonal Inferior", "Transponer", "Letra A", "Letra Z", "Letra T", "Letra V", "Letra E", "Letra F", "Letra P", "Letra I", "Letra N", "Letra Y", "Letra X" }));
-        jPanel1.add(cmbOperaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 380, -1, -1));
+        cmbOperaciones.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Letra B", "Letra K", "Letra M", "Figura I", "Figura II", "Figura III", "Figura IV", "Letra W", "Letra  Q", "Letra  J", "Letra  G", "Letra  R" }));
+        jPanel1.add(cmbOperaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 390, -1, -1));
 
         jButton1.setText("Salir");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -157,7 +157,7 @@ public class Principal extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 430, -1, -1));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 430, -1, -1));
 
         jPanel4.setBackground(new java.awt.Color(0, 0, 0));
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Matrix N°1", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(255, 255, 255))); // NOI18N
@@ -178,9 +178,9 @@ public class Principal extends javax.swing.JFrame {
         tblTablaInicial.setEnabled(false);
         jScrollPane1.setViewportView(tblTablaInicial);
 
-        jPanel4.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 360, 140));
+        jPanel4.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 360, 180));
 
-        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 400, 200));
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 400, 230));
 
         jPanel6.setBackground(new java.awt.Color(0, 0, 0));
         jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Matrix Resultante", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(255, 255, 255))); // NOI18N
@@ -199,9 +199,9 @@ public class Principal extends javax.swing.JFrame {
         tblTablaResultado.setEnabled(false);
         jScrollPane2.setViewportView(tblTablaResultado);
 
-        jPanel6.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 390, 140));
+        jPanel6.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 390, 180));
 
-        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 150, 430, 200));
+        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 150, 430, 230));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Captura.PNG"))); // NOI18N
         jLabel4.setText("jLabel4");
@@ -255,28 +255,9 @@ public class Principal extends javax.swing.JFrame {
             if (txtNumerodeColumnas.getText().trim().isEmpty()) {
             Helper.mensaje(this, "Digite  el numero de Columnas",3);
             txtNumerodeColumnas.requestFocusInWindow();
-        } else if (Integer.parseInt(txtNumerodeFilas.getText()) < 5 || Integer.parseInt(txtNumerodeFilas.getText()) > 20) {
-            Helper.mensaje(this, "El numero de FILAS y COLUMNAS de ve ser igual o mayor A: 5 y menor Que: 20 ", 3);
-            txtNumerodeFilas.requestFocusInWindow();
-            txtNumerodeFilas.selectAll();
-        } else if (txtNumerodeFilas.getText().trim().isEmpty()) {
-            Helper.mensaje(this, "Digite por favor el numero de COLUMNAS", 3);
-            txtNumerodeFilas.requestFocusInWindow();
-        } else if (Integer.parseInt(txtNumerodeColumnas.getText()) < 5 || Integer.parseInt(txtNumerodeColumnas.getText()) > 20) {
-            Helper.mensaje(this, "El numero de COLUMNAS de ve ser igual o mayor A: 5 y menor Que: 20 ", 3);
-            txtNumerodeColumnas.requestFocusInWindow();
-            txtNumerodeColumnas.selectAll();
-        } else if (Integer.parseInt(txtNumerodeColumnas.getText())%2==0 || Integer.parseInt(txtNumerodeColumnas.getText())%2==0) {
-            Helper.mensaje(this, "El numero de COLUMNAS tiene que ser IMPAR ", 3);
-            txtNumerodeColumnas.requestFocusInWindow();
-            txtNumerodeColumnas.selectAll();
-        }else if (Integer.parseInt(txtNumerodeFilas.getText())%2==0 || Integer.parseInt(txtNumerodeFilas.getText())%2==0) {
-            Helper.mensaje(this, "El numero de FILAS tiene que ser IMPAR ", 3);
-            txtNumerodeFilas.requestFocusInWindow();
-            txtNumerodeFilas.selectAll();
-        }
+            }
         else {
-            
+           
         
         int nf, nc;
         DefaultTableModel tm, tm2;
@@ -334,50 +315,173 @@ public class Principal extends javax.swing.JFrame {
        
          switch (op) {
             case 0:
+               if (Integer.parseInt(txtNumerodeFilas.getText()) < 5 || Integer.parseInt(txtNumerodeFilas.getText()) >5) {
+                Helper.mensaje(this, "El numero de FILAS deve ser igual a 5 para mostrar la figura ", 1);
+                txtNumerodeFilas.requestFocusInWindow();
+                txtNumerodeFilas.selectAll();
+               }
+                else if (Integer.parseInt(txtNumerodeColumnas.getText()) < 5 || Integer.parseInt(txtNumerodeColumnas.getText()) >5) {
+                Helper.mensaje(this, "El  numero de COLUMNAS deve ser igual a 5 para mostrar la figura ", 1);
+                txtNumerodeColumnas.requestFocusInWindow();
+                txtNumerodeColumnas.selectAll();
+                }else{
+                    Helper.letraB(tblTablaInicial, tblTablaResultado);
                
-                Helper.diagonalSecundaria(tblTablaInicial, tblTablaResultado);
-                break;
+                }
+                 break; 
             case 1:
-                Helper.diagonalSuperior(tblTablaInicial, tblTablaResultado);
-                break;
+                 if (Integer.parseInt(txtNumerodeFilas.getText()) < 5 || Integer.parseInt(txtNumerodeFilas.getText()) >5) {
+                Helper.mensaje(this, "El numero de FILAS deve ser igual a 5 para mostrar la figura ", 1);
+                txtNumerodeFilas.requestFocusInWindow();
+                txtNumerodeFilas.selectAll();
+               }
+                else if (Integer.parseInt(txtNumerodeColumnas.getText()) < 4 || Integer.parseInt(txtNumerodeColumnas.getText()) >4) {
+                Helper.mensaje(this, "El  numero de COLUMNAS deve ser igual a 4 para mostrar la figura ", 1);
+                txtNumerodeColumnas.requestFocusInWindow();
+                txtNumerodeColumnas.selectAll();
+                }else{
+                Helper.letraK(tblTablaInicial, tblTablaResultado);
+                }
+                 break;
             case 2:
-                Helper.diagonalInferior(tblTablaInicial, tblTablaResultado);
+                  if (Integer.parseInt(txtNumerodeFilas.getText()) < 5 || Integer.parseInt(txtNumerodeFilas.getText()) >5) {
+                Helper.mensaje(this, "El numero de FILAS deve ser igual a 5 para mostrar la figura ", 1);
+                txtNumerodeFilas.requestFocusInWindow();
+                txtNumerodeFilas.selectAll();
+               }
+                else if (Integer.parseInt(txtNumerodeColumnas.getText()) < 5 || Integer.parseInt(txtNumerodeColumnas.getText()) >5) {
+                Helper.mensaje(this, "El  numero de COLUMNAS deve ser igual a 5 para mostrar la figura ", 1);
+                txtNumerodeColumnas.requestFocusInWindow();
+                txtNumerodeColumnas.selectAll();
+                }else{
+                Helper.letraM(tblTablaInicial, tblTablaResultado);
+                }
                 break;
             case 3:
-                Helper.transponer(tblTablaInicial, tblTablaResultado);
+                 if (Integer.parseInt(txtNumerodeFilas.getText()) < 6|| Integer.parseInt(txtNumerodeFilas.getText()) >6) {
+                Helper.mensaje(this, "El numero de FILAS deve ser igual a 6 para mostrar la figura ", 1);
+                txtNumerodeFilas.requestFocusInWindow();
+                txtNumerodeFilas.selectAll();
+               }
+                else if (Integer.parseInt(txtNumerodeColumnas.getText()) < 5 || Integer.parseInt(txtNumerodeColumnas.getText()) >5) {
+                Helper.mensaje(this, "El  numero de COLUMNAS deve ser igual a 5 para mostrar la figura ", 1);
+                txtNumerodeColumnas.requestFocusInWindow();
+                txtNumerodeColumnas.selectAll();
+                }else{
+                Helper.FiguraI(tblTablaInicial, tblTablaResultado);
+                }
                 break;
             case 4:
-                Helper.letraA(tblTablaInicial, tblTablaResultado);
+                 if (Integer.parseInt(txtNumerodeFilas.getText()) < 5|| Integer.parseInt(txtNumerodeFilas.getText()) >5) {
+                Helper.mensaje(this, "El numero de FILAS deve ser igual a 5 para mostrar la figura ", 1);
+                txtNumerodeFilas.requestFocusInWindow();
+                txtNumerodeFilas.selectAll();
+               }
+                else if (Integer.parseInt(txtNumerodeColumnas.getText()) < 6 || Integer.parseInt(txtNumerodeColumnas.getText()) >6) {
+                Helper.mensaje(this, "El  numero de COLUMNAS deve ser igual a 6 para mostrar la figura ", 1);
+                txtNumerodeColumnas.requestFocusInWindow();
+                txtNumerodeColumnas.selectAll();
+                }else{
+                Helper.FiguraII(tblTablaInicial, tblTablaResultado);
+                }
                 break;
             case 5:
-                Helper.letraZ(tblTablaInicial, tblTablaResultado);
+                 if (Integer.parseInt(txtNumerodeFilas.getText()) < 6|| Integer.parseInt(txtNumerodeFilas.getText()) >6) {
+                Helper.mensaje(this, "El numero de FILAS deve ser igual a 6 para mostrar la figura ", 1);
+                txtNumerodeFilas.requestFocusInWindow();
+                txtNumerodeFilas.selectAll();
+               }
+                else if (Integer.parseInt(txtNumerodeColumnas.getText()) < 6 || Integer.parseInt(txtNumerodeColumnas.getText()) >6) {
+                Helper.mensaje(this, "El  numero de COLUMNAS deve ser igual a 6 para mostrar la figura ", 1);
+                txtNumerodeColumnas.requestFocusInWindow();
+                txtNumerodeColumnas.selectAll();
+                }else{
+                Helper.FiguraIII(tblTablaInicial, tblTablaResultado);
+                }
                 break;
             case 6:
-                Helper.letraT(tblTablaInicial, tblTablaResultado);
+                 if (Integer.parseInt(txtNumerodeFilas.getText()) < 5|| Integer.parseInt(txtNumerodeFilas.getText()) >5) {
+                Helper.mensaje(this, "El numero de FILAS deve ser igual a 5 para mostrar la figura ", 1);
+                txtNumerodeFilas.requestFocusInWindow();
+                txtNumerodeFilas.selectAll();
+               }
+                else if (Integer.parseInt(txtNumerodeColumnas.getText()) < 5 || Integer.parseInt(txtNumerodeColumnas.getText()) >5) {
+                Helper.mensaje(this, "El  numero de COLUMNAS deve ser igual a 5 para mostrar la figura ", 1);
+                txtNumerodeColumnas.requestFocusInWindow();
+                txtNumerodeColumnas.selectAll();
+                }else{
+                Helper.FiguraIV(tblTablaInicial, tblTablaResultado);
+                }
                 break;
             case 7:
-                Helper.letraV(tblTablaInicial, tblTablaResultado);
+                 if (Integer.parseInt(txtNumerodeFilas.getText()) < 5|| Integer.parseInt(txtNumerodeFilas.getText()) >5) {
+                Helper.mensaje(this, "El numero de FILAS deve ser igual a 5 para mostrar la figura ", 1);
+                txtNumerodeFilas.requestFocusInWindow();
+                txtNumerodeFilas.selectAll();
+               }
+                else if (Integer.parseInt(txtNumerodeColumnas.getText()) < 5 || Integer.parseInt(txtNumerodeColumnas.getText()) >5) {
+                Helper.mensaje(this, "El  numero de COLUMNAS deve ser igual a 5 para mostrar la figura ", 1);
+                txtNumerodeColumnas.requestFocusInWindow();
+                txtNumerodeColumnas.selectAll();
+                }else{
+                Helper.letraW(tblTablaInicial, tblTablaResultado);
+                }
                 break;
             case 8:
-                Helper.letraE(tblTablaInicial, tblTablaResultado);
+                 if (Integer.parseInt(txtNumerodeFilas.getText()) < 5|| Integer.parseInt(txtNumerodeFilas.getText()) >5) {
+                Helper.mensaje(this, "El numero de FILAS deve ser igual a 5 para mostrar la figura ", 1);
+                txtNumerodeFilas.requestFocusInWindow();
+                txtNumerodeFilas.selectAll();
+               }
+                else if (Integer.parseInt(txtNumerodeColumnas.getText()) < 5 || Integer.parseInt(txtNumerodeColumnas.getText()) >5) {
+                Helper.mensaje(this, "El  numero de COLUMNAS deve ser igual a 5 para mostrar la figura ", 1);
+                txtNumerodeColumnas.requestFocusInWindow();
+                txtNumerodeColumnas.selectAll();
+                }else{
+                Helper.letraQ(tblTablaInicial, tblTablaResultado);
+                }
                 break;
             case 9:
-                Helper.letraF(tblTablaInicial, tblTablaResultado);
+                 if (Integer.parseInt(txtNumerodeFilas.getText()) < 5|| Integer.parseInt(txtNumerodeFilas.getText()) >5) {
+                Helper.mensaje(this, "El numero de FILAS deve ser igual a 5 para mostrar la figura ", 1);
+                txtNumerodeFilas.requestFocusInWindow();
+                txtNumerodeFilas.selectAll();
+               }
+                else if (Integer.parseInt(txtNumerodeColumnas.getText()) < 5 || Integer.parseInt(txtNumerodeColumnas.getText()) >5) {
+                Helper.mensaje(this, "El  numero de COLUMNAS deve ser igual a 5 para mostrar la figura ", 1);
+                txtNumerodeColumnas.requestFocusInWindow();
+                txtNumerodeColumnas.selectAll();
+                }else{
+                Helper.letraJ(tblTablaInicial, tblTablaResultado);
+                }
                 break;
             case 10:
-                Helper.letraP(tblTablaInicial, tblTablaResultado);
+                 if (Integer.parseInt(txtNumerodeFilas.getText()) < 6|| Integer.parseInt(txtNumerodeFilas.getText()) >6) {
+                Helper.mensaje(this, "El numero de FILAS deve ser igual a 6 para mostrar la figura ", 1);
+                txtNumerodeFilas.requestFocusInWindow();
+                txtNumerodeFilas.selectAll();
+               }
+                else if (Integer.parseInt(txtNumerodeColumnas.getText()) < 5 || Integer.parseInt(txtNumerodeColumnas.getText()) >5) {
+                Helper.mensaje(this, "El  numero de COLUMNAS deve ser igual a 5 para mostrar la figura ", 1);
+                txtNumerodeColumnas.requestFocusInWindow();
+                txtNumerodeColumnas.selectAll();
+                }else{
+                Helper.letraG(tblTablaInicial, tblTablaResultado);
+                }
                 break;
             case 11:
-                Helper.letraI(tblTablaInicial, tblTablaResultado);
-                break;
-            case 12:
-                Helper.letraN(tblTablaInicial, tblTablaResultado);
-                break;
-            case 13:
-                Helper.letraY(tblTablaInicial,tblTablaResultado);
-                break;
-            case 14:
-                Helper.letraX(tblTablaInicial, tblTablaResultado);
+                 if (Integer.parseInt(txtNumerodeFilas.getText()) < 5|| Integer.parseInt(txtNumerodeFilas.getText()) >5) {
+                Helper.mensaje(this, "El numero de FILAS deve ser igual a 5 para mostrar la figura ", 1);
+                txtNumerodeFilas.requestFocusInWindow();
+                txtNumerodeFilas.selectAll();
+               }
+                else if (Integer.parseInt(txtNumerodeColumnas.getText()) < 5 || Integer.parseInt(txtNumerodeColumnas.getText()) >5) {
+                Helper.mensaje(this, "El  numero de COLUMNAS deve ser igual a 5 para mostrar la figura ", 1);
+                txtNumerodeColumnas.requestFocusInWindow();
+                txtNumerodeColumnas.selectAll();
+                }else{
+                Helper.letraR(tblTablaInicial, tblTablaResultado);
+                }
                 break;
          }
         
